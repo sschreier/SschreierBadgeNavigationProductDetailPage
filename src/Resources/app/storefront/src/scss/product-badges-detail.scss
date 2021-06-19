@@ -1,0 +1,16 @@
+.product-badges-detail {
+    position: absolute;
+
+    .badge {
+        padding: 0 8px;
+        height: 32px;
+        margin: 0 0 8px;
+        line-height: 32px;
+        font-weight: 700;
+        color: #fff;
+        border-radius: $border-radius;
+        border-color: transparent;
+        font-size: 18px;
+        letter-spacing: 0;
+    }
+}

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/platform/master/src/Core/System/SystemConfig/Schema/config.xsd">
+    <card>
+        <title>discount badge</title>
+        <title lang="de-DE">Rabatt - Badge</title>
+
+        <input-field type="bool">
+            <name>ShowDiscountBadgeInCategoryLists</name>
+            <label>show in the category lists</label>
+            <label lang="de-DE">in den Kategorielisten anzeigen</label>
+            <defaultValue>true</defaultValue>
+        </input-field>
+
+        <input-field type="bool">
+            <name>ShowDiscountBadgeOnProductDetailPage</name>
+            <label>show on the product detail page</label>
+            <label lang="de-DE">auf der Produkt-Detailseite anzeigen</label>
+            <defaultValue>false</defaultValue>
+        </input-field>
+    </card>
+
+    <card>
+        <title>topseller badge</title>
+        <title lang="de-DE">Tipp - Badge</title>
+
+        <input-field type="bool">
+            <name>ShowTopsellerBadgeInCategoryLists</name>
+            <label>show in the category lists</label>
+            <label lang="de-DE">in den Kategorielisten anzeigen</label>
+            <defaultValue>true</defaultValue>
+        </input-field>
+
+        <input-field type="bool">
+            <name>ShowTopsellerBadgeOnProductDetailPage</name>
+            <label>show on the product detail page</label>
+            <label lang="de-DE">auf der Produkt-Detailseite anzeigen</label>
+            <defaultValue>false</defaultValue>
+        </input-field>
+    </card>
+
+    <card>
+        <title>new badge</title>
+        <title lang="de-DE">Neu - Badge</title>
+
+        <input-field type="bool">
+            <name>ShowNewBadgeInCategoryLists</name>
+            <label>show in the category lists</label>
+            <label lang="de-DE">in den Kategorielisten anzeigen</label>
+            <defaultValue>true</defaultValue>
+        </input-field>
+
+        <input-field type="bool">
+            <name>ShowNewBadgeOnProductDetailPage</name>
+            <label>show on the product detail page</label>
+            <label lang="de-DE">auf der Produkt-Detailseite anzeigen</label>
+            <defaultValue>false</defaultValue>
+        </input-field>
+    </card>
+
+    <card>
+        <title>Custom badge</title>
+        <title lang="de-DE">Eigenes Badge</title>
+
+        <input-field type="bool">
+            <name>ShowBadgeInCategoryLists</name>
+            <label>show in the category lists</label>
+            <label lang="de-DE">in den Kategorielisten anzeigen</label>
+            <defaultValue>true</defaultValue>
+        </input-field>
+
+        <input-field type="bool">
+            <name>ShowBadgeOnProductDetailPage</name>
+            <label>show on the product detail page</label>
+            <label lang="de-DE">auf der Produkt-Detailseite anzeigen</label>
+            <defaultValue>true</defaultValue>
+        </input-field>
+
+        <input-field type="bool">
+            <name>SetBadgeBackgroundColorViaConfiguration</name>
+            <label>set the colors of the badge via configuration</label>
+            <label lang="de-DE">Farben des Badges über die Konfiguration festlegen</label>
+            <defaultValue>false</defaultValue>
+        </input-field>
+
+        <input-field type="colorpicker">
+            <name>BadgeBackgroundColorConfiguration</name>
+            <label>background color of the badge</label>
+            <label lang="de-DE">Hintergrundfarbe des Badges</label>
+            <defaultValue>#008490</defaultValue>
+            <placeholder>#008490</placeholder>
+        </input-field>
+
+        <input-field type="colorpicker">
+            <name>BadgeFontColorConfiguration</name>
+            <label>font color of the badge</label>
+            <label lang="de-DE">Schriftfarbe des Badges</label>
+            <defaultValue>#ffffff</defaultValue>
+            <placeholder>#ffffff</placeholder>
+        </input-field>
+    </card>
+</config>

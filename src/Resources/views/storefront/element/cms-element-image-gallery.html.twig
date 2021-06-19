@@ -1,0 +1,71 @@
+{% sw_extends '@Storefront/storefront/element/cms-element-image-gallery.html.twig' %}
+
+{% block element_image_gallery_inner_wrapper %}
+    {% set product = page.product %}
+
+    {% block element_image_gallery_inner_wrapper_before %}
+        {% if config('SschreierBadgeNavigationProductDetailPage.config.ShowDiscountBadgeOnProductDetailPage') or config('SschreierBadgeNavigationProductDetailPage.config.ShowTopsellerBadgeOnProductDetailPage') or config('SschreierBadgeNavigationProductDetailPage.config.ShowNewBadgeOnProductDetailPage') or config('SschreierBadgeNavigationProductDetailPage.config.ShowBadgeOnProductDetailPage') %}<div class="product-badges-detail">{% endif %}
+            {% block element_image_gallery_inner_wrapper_component_product_badges_discount %}
+                {% if config('SschreierBadgeNavigationProductDetailPage.config.ShowDiscountBadgeOnProductDetailPage') %}
+                    {% set price = product.calculatedPrice %}
+                    {% if product.calculatedPrices.count > 0 %}
+                        {% set price = product.calculatedPrices.last %}
+                    {% endif %}
+
+                    {% set listPrice = price.listPrice.percentage > 0 %}
+                    {% set hasRange = product.calculatedPrices.count > 1 %}
+
+                    {% if listPrice and not hasRange %}
+                        <div class="badge badge-danger badge-discount">
+                            <span>{{ "sschreier.badgenavigationproductdetailpage.boxLabelDiscount"|trans|sw_sanitize }}</span>
+                        </div>
+                    {% endif %}
+                {% endif %}
+            {% endblock %}
+
+            {% block element_image_gallery_inner_wrapper_component_product_badges_topseller %}
+                {% if config('SschreierBadgeNavigationProductDetailPage.config.ShowTopsellerBadgeOnProductDetailPage') %}
+                    {% if product.markAsTopseller %}
+                        <div>
+                            <span class="badge badge-warning badge-topseller">{{ "listing.boxLabelTopseller"|trans|sw_sanitize }}</span>
+                        </div>
+                    {% endif %}
+                {% endif %}
+            {% endblock %}
+
+            {% block element_image_gallery_inner_wrapper_component_product_badges_new %}
+                {% if config('SschreierBadgeNavigationProductDetailPage.config.ShowNewBadgeOnProductDetailPage') %}
+                    {% if product.isNew %}
+                        <div>
+                            <span class="badge badge-success badge-new">{{ "listing.boxLabelNew"|trans|sw_sanitize }}</span>
+                        </div>
+                    {% endif %}
+                {% endif %}
+            {% endblock %}
+
+            {% set extension = product.extensions %}
+            {% set customFields = product.translated.customFields %}
+            {% set numberBadgesValue = extension['numberBadgesValue'].value %}
+
+            {% block element_image_gallery_inner_wrapper_custom_badge %}
+                {% if config('SschreierBadgeNavigationProductDetailPage.config.ShowBadgeOnProductDetailPage') %}
+                    {% for numberBadges in 1..numberBadgesValue %}
+                        {% set customBadgeTextValue = 'sschreier_badges_badge' ~ numberBadges ~ '_text' %}
+                        {% set customBadgeBackgroundColorValue = 'sschreier_badges_badge' ~ numberBadges ~ '_backgroundcolor' %}
+                        {% set customBadgeFontColorValue = 'sschreier_badges_badge' ~ numberBadges ~ '_fontcolor' %}
+
+                        {% block page_product_detail_buy_container_inner %}
+                            {% if customFields[customBadgeTextValue] %}
+                                {% sw_include '@SschreierBadgeNavigationProductDetailPage/storefront/component/product/card/badge-custom.html.twig' %}
+                            {% endif %}
+                        {% endblock %}
+                    {% endfor %}
+                {% endif %}
+            {% endblock %}
+    {% if config('SschreierBadgeNavigationProductDetailPage.config.ShowDiscountBadgeOnProductDetailPage') or config('SschreierBadgeNavigationProductDetailPage.config.ShowTopsellerBadgeOnProductDetailPage') or config('SschreierBadgeNavigationProductDetailPage.config.ShowNewBadgeOnProductDetailPage') or config('SschreierBadgeNavigationProductDetailPage.config.ShowBadgeOnProductDetailPage') %}</div>{% endif %}
+    {% endblock %}
+
+    {{ parent() }}
+
+    {% block element_image_gallery_inner_wrapper_after %}{% endblock %}
+{% endblock %}

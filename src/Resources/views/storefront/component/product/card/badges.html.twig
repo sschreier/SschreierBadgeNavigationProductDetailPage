@@ -1,0 +1,50 @@
+{% sw_extends '@Storefront/storefront/component/product/card/badges.html.twig' %}
+
+{% block component_product_badges_discount %}
+    {% block component_product_badges_discount_before %}{% endblock %}
+
+    {% if config('SschreierBadgeNavigationProductDetailPage.config.ShowDiscountBadgeInCategoryLists') %}
+        {{ parent() }}
+    {% endif %}
+
+    {% block component_product_badges_discount_after %}{% endblock %}
+{% endblock %}
+
+{% block component_product_badges_topseller %}
+    {% block component_product_badges_topseller_before %}{% endblock %}
+
+    {% if config('SschreierBadgeNavigationProductDetailPage.config.ShowTopsellerBadgeInCategoryLists') %}
+        {{ parent() }}
+    {% endif %}
+
+    {% block component_product_badges_topseller_after %}{% endblock %}
+{% endblock %}
+
+{% block component_product_badges_new %}
+    {% block component_product_badges_new_before %}{% endblock %}
+
+    {% if config('SschreierBadgeNavigationProductDetailPage.config.ShowNewBadgeInCategoryLists') %}
+        {{ parent() }}
+    {% endif %}
+
+    {% block component_product_badges_new_after %}{% endblock %}
+
+    {% set customFields = product.translated.customFields %}
+    {% set numberBadgesValue = page.numberBadgesValue %}
+
+    {% if config('SschreierBadgeNavigationProductDetailPage.config.ShowBadgeInCategoryLists') %}
+        {% for numberBadges in 1..numberBadgesValue %}
+            {% set customBadgeTextValue = 'sschreier_badges_badge' ~ numberBadges ~ '_text' %}
+            {% set customBadgeBackgroundColorValue = 'sschreier_badges_badge' ~ numberBadges ~ '_backgroundcolor' %}
+            {% set customBadgeFontColorValue = 'sschreier_badges_badge' ~ numberBadges ~ '_fontcolor' %}
+
+            {% block page_product_detail_buy_container_inner %}
+                {% if customFields[customBadgeTextValue] %}
+                    {% sw_include '@SschreierBadgeNavigationProductDetailPage/storefront/component/product/card/badge-custom.html.twig' %}
+                {% endif %}
+            {% endblock %}
+        {% endfor %}
+    {% endif %}
+
+    {% block component_product_badges_new_custom_badge_after %}{% endblock %}
+{% endblock %}
