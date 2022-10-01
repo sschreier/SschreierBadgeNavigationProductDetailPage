@@ -1,7 +1,7 @@
 {
     "name": "sschreier/sschreierbadgenavigationproductdetailpage",
-    "description": "A badge for the navigation and the product detail page",
-    "version": "1.0.0",
+    "description": "badges for the navigation and the product detail page",
+    "version": "1.0.1",
     "type": "shopware-platform-plugin",
     "license": "proprietary",
     "authors": [
@@ -11,20 +11,20 @@
         }
     ],
     "require": {
-        "shopware/core": "~6.4.1",
-        "shopware/storefront": "~6.4.1"
+        "shopware/core": "~6.4.15",
+        "shopware/storefront": "~6.4.15"
     },
     "extra": {
         "shopware-plugin-class": "Sschreier\\BadgeNavigationProductDetailPage\\SschreierBadgeNavigationProductDetailPage",
         "plugin-icon": "src/Resources/config/plugin.png",
         "copyright": "Sebastian Schreier",
         "label": {
-            "de-DE": "Ein Badge für die Kategorielisten und die Produkt - Detailseite",
-            "en-GB": "A badge for the navigation and the product detail page"
+            "de-DE": "Badges für die Kategorielisten und die Produkt - Detailseite",
+            "en-GB": "badges for the navigation and the product detail page"
         },
         "description": {
-            "de-DE": "Die Erweiterung ermöglicht ein Badge für die Kategorielisten und die Produkt - Detailseite. Der Text des eigenen Badges wird bei den Zusatzfeldern am Produkt festgelegt. Die Hintergrundfarbe und die Schriftfarbe des Badges können über die Konfiguration oder am Produkt festgelegt werden. Das eigene Badge wird ebenso beim Zuweisen eines Produktseiten-Layouts angezeigt.",
-            "en-GB": "The extension provide a badge for the navigation and the product detail page. The text from the custom badge is set at the custom fields at the product. The background color and the font color of the badge could be set over the configuration or at the product. The custom badge is also displayed when assigning a product page layout."
+            "de-DE": "Die Erweiterung ermöglicht Badges für die Kategorielisten und die Produkt - Detailseite. Der Text der eigenen Badges wird bei den Zusatzfeldern am Produkt festgelegt. Die Hintergrundfarbe und die Schriftfarbe der Badges können über die Konfiguration oder am Produkt festgelegt werden. Die eigenen Badges werden ebenso beim Zuweisen eines Produktseiten-Layouts angezeigt.",
+            "en-GB": "The extension provide badges for the navigation and the product detail page. The text from the custom badges is set at the custom fields at the product. The background color and the font color of the badges could be set over the configuration or at the product. The custom badges are also displayed when assigning a product page layout."
         },
         "manufacturerLink": {
             "de-DE": "https://www.sebastianschreier.de",

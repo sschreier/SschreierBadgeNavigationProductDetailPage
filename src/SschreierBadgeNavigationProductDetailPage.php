@@ -15,7 +15,8 @@ namespace Sschreier\BadgeNavigationProductDetailPage;
 
     class SschreierBadgeNavigationProductDetailPage extends Plugin
     {
-        const NUMBER_BADGES = 1;
+        const CUSTOM_FIELD_SET_TECHNICAL_NAME = 'sschreier_badges_';
+        const NUMBER_BADGES = 5;
 
         public function install(InstallContext $installContext): void
         {
@@ -24,13 +25,13 @@ namespace Sschreier\BadgeNavigationProductDetailPage;
             for ($i = 1; $i <= SschreierBadgeNavigationProductDetailPage::NUMBER_BADGES; ++$i) {
                 $criteria = new Criteria();
 
-                $criteria->addFilter(new EqualsFilter('name', 'sschreier_badges_' . $i));
+                $criteria->addFilter(new EqualsFilter('name', self::CUSTOM_FIELD_SET_TECHNICAL_NAME . $i));
 
                 $result = $customFieldSetRepository->searchIds($criteria, $installContext->getContext());
 
                 if (!($result->getTotal() > 0)) {
                     $customFieldSetRepository->create([[
-                        'name' => 'sschreier_badges_' . $i,
+                        'name' => self::CUSTOM_FIELD_SET_TECHNICAL_NAME . $i,
                         'config' => [
                             'label' => [
                                 'de-DE' => 'Badge ' . $i,
@@ -40,7 +41,7 @@ namespace Sschreier\BadgeNavigationProductDetailPage;
                         'position' => $i,
                         'customFields' => [
                             [
-                                'name' => 'sschreier_badges_badge' . $i . '_text',
+                                'name' => self::CUSTOM_FIELD_SET_TECHNICAL_NAME . 'badge' . $i . '_text',
                                 'type' => CustomFieldTypes::TEXT,
                                 'config' => [
                                     'label' => [
@@ -58,7 +59,7 @@ namespace Sschreier\BadgeNavigationProductDetailPage;
                                 ],
                             ],
                             [
-                                'name' => 'sschreier_badges_badge' . $i . '_backgroundcolor',
+                                'name' => self::CUSTOM_FIELD_SET_TECHNICAL_NAME . 'badge' . $i . '_backgroundcolor',
                                 'type' => CustomFieldTypes::TEXT,
                                 'config' => [
                                     'label' => [
@@ -72,7 +73,7 @@ namespace Sschreier\BadgeNavigationProductDetailPage;
                                 ],
                             ],
                             [
-                                'name' => 'sschreier_badges_badge' . $i . '_fontcolor',
+                                'name' => self::CUSTOM_FIELD_SET_TECHNICAL_NAME . 'badge' . $i . '_fontcolor',
                                 'type' => CustomFieldTypes::TEXT,
                                 'config' => [
                                     'label' => [
@@ -131,7 +132,7 @@ namespace Sschreier\BadgeNavigationProductDetailPage;
 
             for ($i = 1; $i <= SschreierBadgeNavigationProductDetailPage::NUMBER_BADGES; ++$i) {
                 $criteria = new Criteria();
-                $criteria->addFilter(new EqualsFilter('name', 'sschreier_badges_' . $i));
+                $criteria->addFilter(new EqualsFilter('name', self::CUSTOM_FIELD_SET_TECHNICAL_NAME . $i));
 
                 $result = $customFieldSetRepository->searchIds($criteria, $uninstallContext->getContext());
 

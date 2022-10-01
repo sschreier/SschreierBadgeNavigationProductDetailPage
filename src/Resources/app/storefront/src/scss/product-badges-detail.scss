@@ -13,4 +13,26 @@
         font-size: 18px;
         letter-spacing: 0;
     }
+
+    .badge-out-of-stock {
+        color: #fff;
+        background-color: $sw-color-danger;
+    }
+
+    .badge-custom {
+        color: #fff;
+        background-color: $sw-color-brand-primary;
+    }
+}
+
+.product-badges {
+    .badge-out-of-stock {
+        color: #fff;
+        background-color: $sw-color-danger;
+    }
+
+    .badge-custom {
+        color: #fff;
+        background-color: $sw-color-brand-primary;
+    }
 }

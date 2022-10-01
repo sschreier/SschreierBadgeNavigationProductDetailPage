@@ -29,22 +29,75 @@
 
     {% block component_product_badges_new_after %}{% endblock %}
 
+    {% block component_product_badges_new_out_of_stock %}
+        {% set isAvailable = not product.isCloseout or (product.availableStock >= product.minPurchase) %}
+        {% block component_product_badges_new_out_of_stock_before %}{% endblock %}
+
+        {% if config('SschreierBadgeNavigationProductDetailPage.config.ShowOosBadgeInCategoryLists') and not isAvailable %}
+            {% sw_include '@SschreierBadgeNavigationProductDetailPage/storefront/component/product/card/badge-out-of-stock.html.twig' %}
+        {% endif %}
+
+        {% block component_product_badges_new_out_of_stock_after %}{% endblock %}
+    {% endblock %}
+
     {% set customFields = product.translated.customFields %}
     {% set numberBadgesValue = page.numberBadgesValue %}
 
-    {% if config('SschreierBadgeNavigationProductDetailPage.config.ShowBadgeInCategoryLists') %}
+    {% block component_product_badges_new_custom_badge %}
         {% for numberBadges in 1..numberBadgesValue %}
-            {% set customBadgeTextValue = 'sschreier_badges_badge' ~ numberBadges ~ '_text' %}
-            {% set customBadgeBackgroundColorValue = 'sschreier_badges_badge' ~ numberBadges ~ '_backgroundcolor' %}
-            {% set customBadgeFontColorValue = 'sschreier_badges_badge' ~ numberBadges ~ '_fontcolor' %}
+            {% set showBadge = false %}
+
+            {% if (numberBadges == 1) %}
+                {% set showBadge = config('SschreierBadgeNavigationProductDetailPage.config.ShowBadgeInCategoryLists') %}
+                {% set customSetBadgeColorsViaConfiguration = config('SschreierBadgeNavigationProductDetailPage.config.SetBadgeColorsViaConfiguration') %}
+                {% set customBadgeBackgroundColorConfiguration = config('SschreierBadgeNavigationProductDetailPage.config.BadgeBackgroundColorConfiguration') %}
+                {% set customBadgeFontColorConfiguration = config('SschreierBadgeNavigationProductDetailPage.config.BadgeFontColorConfiguration') %}
+            {% elseif (numberBadges == 2) %}
+                {% set showBadge = config('SschreierBadgeNavigationProductDetailPage.config.ShowBadge2InCategoryLists') %}
+                {% set customSetBadgeColorsViaConfiguration = config('SschreierBadgeNavigationProductDetailPage.config.SetBadge2ColorsViaConfiguration') %}
+                {% set customBadgeBackgroundColorConfiguration = config('SschreierBadgeNavigationProductDetailPage.config.Badge2BackgroundColorConfiguration') %}
+                {% set customBadgeFontColorConfiguration = config('SschreierBadgeNavigationProductDetailPage.config.Badge2FontColorConfiguration') %}
+            {% elseif (numberBadges == 3) %}
+                {% set showBadge = config('SschreierBadgeNavigationProductDetailPage.config.ShowBadge3InCategoryLists') %}
+                {% set customSetBadgeColorsViaConfiguration = config('SschreierBadgeNavigationProductDetailPage.config.SetBadge3ColorsViaConfiguration') %}
+                {% set customBadgeBackgroundColorConfiguration = config('SschreierBadgeNavigationProductDetailPage.config.Badge3BackgroundColorConfiguration') %}
+                {% set customBadgeFontColorConfiguration = config('SschreierBadgeNavigationProductDetailPage.config.Badge3FontColorConfiguration') %}
+            {% elseif (numberBadges == 4) %}
+                {% set showBadge = config('SschreierBadgeNavigationProductDetailPage.config.ShowBadge4InCategoryLists') %}
+                {% set customSetBadgeColorsViaConfiguration = config('SschreierBadgeNavigationProductDetailPage.config.SetBadge4ColorsViaConfiguration') %}
+                {% set customBadgeBackgroundColorConfiguration = config('SschreierBadgeNavigationProductDetailPage.config.Badge4BackgroundColorConfiguration') %}
+                {% set customBadgeFontColorConfiguration = config('SschreierBadgeNavigationProductDetailPage.config.Badge4FontColorConfiguration') %}
+            {% elseif (numberBadges == 5) %}
+                {% set showBadge = config('SschreierBadgeNavigationProductDetailPage.config.ShowBadge5InCategoryLists') %}
+                {% set customSetBadgeColorsViaConfiguration = config('SschreierBadgeNavigationProductDetailPage.config.SetBadge5ColorsViaConfiguration') %}
+                {% set customBadgeBackgroundColorConfiguration = config('SschreierBadgeNavigationProductDetailPage.config.Badge5BackgroundColorConfiguration') %}
+                {% set customBadgeFontColorConfiguration = config('SschreierBadgeNavigationProductDetailPage.config.Badge5FontColorConfiguration') %}
+            {% else %}
+                {% block element_image_gallery_inner_wrapper_custom_badge_default %}
+                    {% set showBadge = config('SschreierBadgeNavigationProductDetailPage.config.ShowBadgeInCategoryLists') %}
+                    {% set customSetBadgeColorsViaConfiguration = config('SschreierBadgeNavigationProductDetailPage.config.SetBadgeColorsViaConfiguration') %}
+                    {% set customBadgeBackgroundColorConfiguration = config('SschreierBadgeNavigationProductDetailPage.config.BadgeBackgroundColorConfiguration') %}
+                    {% set customBadgeFontColorConfiguration = config('SschreierBadgeNavigationProductDetailPage.config.BadgeFontColorConfiguration') %}
+                {% endblock %}
+            {% endif %}
 
             {% block page_product_detail_buy_container_inner %}
-                {% if customFields[customBadgeTextValue] %}
-                    {% sw_include '@SschreierBadgeNavigationProductDetailPage/storefront/component/product/card/badge-custom.html.twig' %}
+                {% if showBadge %}
+                    {% set customBadgeTextValue = 'sschreier_badges_badge' ~ numberBadges ~ '_text' %}
+                    {% set customBadgeBackgroundColorValue = 'sschreier_badges_badge' ~ numberBadges ~ '_backgroundcolor' %}
+                    {% set customBadgeFontColorValue = 'sschreier_badges_badge' ~ numberBadges ~ '_fontcolor' %}
+
+                    {% if customFields[customBadgeTextValue] %}
+                        {% sw_include '@SschreierBadgeNavigationProductDetailPage/storefront/component/product/card/badge-custom.html.twig' with {
+                            customSetBadgeColorsViaConfiguration: customSetBadgeColorsViaConfiguration,
+                            customBadgeBackgroundColorConfiguration: customBadgeBackgroundColorConfiguration,
+                            customBadgeFontColorConfiguration: customBadgeFontColorConfiguration
+                        } %}
+                    {% endif %}
                 {% endif %}
             {% endblock %}
         {% endfor %}
-    {% endif %}
+    {% endblock %}
 
     {% block component_product_badges_new_custom_badge_after %}{% endblock %}
 {% endblock %}

@@ -1,6 +1,7 @@
 {
     "sschreier": {
         "badgenavigationproductdetailpage": {
+            "badgeOutOfStockText": "Sold out",
             "badgeText": "%badgetext%",
             "boxLabelDiscount": "&#37;"
         }
