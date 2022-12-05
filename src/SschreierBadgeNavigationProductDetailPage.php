@@ -35,7 +35,7 @@ namespace Sschreier\BadgeNavigationProductDetailPage;
                         'config' => [
                             'label' => [
                                 'de-DE' => 'Badge ' . $i,
-                                'en-GB' => 'badge ' . $i,
+                                'en-GB' => 'Badge ' . $i,
                             ],
                         ],
                         'position' => $i,
@@ -46,11 +46,11 @@ namespace Sschreier\BadgeNavigationProductDetailPage;
                                 'config' => [
                                     'label' => [
                                         'de-DE' => 'Text des Badges',
-                                        'en-GB' => 'text of the badge',
+                                        'en-GB' => 'Text of the badge',
                                     ],
                                     'placeholder' => [
                                         'de-DE' => 'Text des Badges',
-                                        'en-GB' => 'text of the badge',
+                                        'en-GB' => 'Text of the badge',
                                     ],
                                     'componentName' => 'sw-field',
                                     'customFieldType' => 'text',
@@ -64,7 +64,7 @@ namespace Sschreier\BadgeNavigationProductDetailPage;
                                 'config' => [
                                     'label' => [
                                         'de-DE' => 'Hintergrundfarbe des Badges',
-                                        'en-GB' => 'background color of the badge',
+                                        'en-GB' => 'Background color of the badge',
                                     ],
                                     'componentName' => 'sw-field',
                                     'customFieldType' => 'colorpicker',
@@ -78,7 +78,7 @@ namespace Sschreier\BadgeNavigationProductDetailPage;
                                 'config' => [
                                     'label' => [
                                         'de-DE' => 'Schriftfarbe des Badges',
-                                        'en-GB' => 'font color of the badge',
+                                        'en-GB' => 'Font color of the badge',
                                     ],
                                     'componentName' => 'sw-field',
                                     'customFieldType' => 'colorpicker',
