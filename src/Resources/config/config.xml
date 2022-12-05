@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/platform/master/src/Core/System/SystemConfig/Schema/config.xsd">
     <card>
-        <title>discount badge</title>
+        <title>Discount badge</title>
         <title lang="de-DE">Rabatt - Badge</title>
 
         <input-field type="bool">
@@ -20,7 +20,7 @@
     </card>
 
     <card>
-        <title>topseller badge</title>
+        <title>Topseller badge</title>
         <title lang="de-DE">Tipp - Badge</title>
 
         <input-field type="bool">
@@ -39,7 +39,7 @@
     </card>
 
     <card>
-        <title>new badge</title>
+        <title>New badge</title>
         <title lang="de-DE">Neu - Badge</title>
 
         <input-field type="bool">
@@ -58,7 +58,7 @@
     </card>
 
     <card>
-        <title>out of stock badge</title>
+        <title>Out of stock badge</title>
         <title lang="de-DE">Ausverkauft - Badge</title>
 
         <input-field type="bool">
@@ -78,7 +78,7 @@
         <input-field type="colorpicker">
             <name>OosBadgeBackgroundColorConfiguration</name>
             <label>background color of the badge</label>
-            <label lang="de-DE">Hintergrundfarbe des Badges</label>
+            <label lang="de-DE">hintergrundfarbe des Badges</label>
             <defaultValue>#e52427</defaultValue>
             <placeholder>#e52427</placeholder>
         </input-field>
@@ -86,7 +86,7 @@
         <input-field type="colorpicker">
             <name>OosBadgeFontColorConfiguration</name>
             <label>font color of the badge</label>
-            <label lang="de-DE">Schriftfarbe des Badges</label>
+            <label lang="de-DE">schriftfarbe des Badges</label>
             <defaultValue>#ffffff</defaultValue>
             <placeholder>#ffffff</placeholder>
         </input-field>
@@ -94,9 +94,9 @@
         <component name="sw-snippet-field">
             <name>OosBadgeSnippet</name>
             <label>content from the snippet</label>
-            <label lang="de-DE">Inhalt aus dem Textbaustein</label>
+            <label lang="de-DE">inhalt aus dem Textbaustein</label>
             <snippet>sschreier.badgenavigationproductdetailpage.badgeOutOfStockText</snippet>
-            <helpText>click on the globe to edit the translations</helpText>
+            <helpText>Click on the globe to edit the translations</helpText>
             <helpText lang="de-DE">Klicke auf den Globus, um die Übersetzung zu bearbeiten</helpText>
         </component>
     </card>
@@ -122,14 +122,14 @@
         <input-field type="bool">
             <name>SetBadgeColorsViaConfiguration</name>
             <label>set the colors of the badge via configuration</label>
-            <label lang="de-DE">Farben des Badges über die Konfiguration festlegen</label>
+            <label lang="de-DE">farben des Badges über die Konfiguration festlegen</label>
             <defaultValue>false</defaultValue>
         </input-field>
 
         <input-field type="colorpicker">
             <name>BadgeBackgroundColorConfiguration</name>
             <label>background color of the badge</label>
-            <label lang="de-DE">Hintergrundfarbe des Badges</label>
+            <label lang="de-DE">hintergrundfarbe des Badges</label>
             <defaultValue>#008490</defaultValue>
             <placeholder>#008490</placeholder>
         </input-field>
@@ -137,7 +137,7 @@
         <input-field type="colorpicker">
             <name>BadgeFontColorConfiguration</name>
             <label>font color of the badge</label>
-            <label lang="de-DE">Schriftfarbe des Badges</label>
+            <label lang="de-DE">schriftfarbe des Badges</label>
             <defaultValue>#ffffff</defaultValue>
             <placeholder>#ffffff</placeholder>
         </input-field>
@@ -164,14 +164,14 @@
         <input-field type="bool">
             <name>SetBadge2ColorsViaConfiguration</name>
             <label>set the colors of the badge via configuration</label>
-            <label lang="de-DE">Farben des Badges über die Konfiguration festlegen</label>
+            <label lang="de-DE">farben des Badges über die Konfiguration festlegen</label>
             <defaultValue>false</defaultValue>
         </input-field>
 
         <input-field type="colorpicker">
             <name>Badge2BackgroundColorConfiguration</name>
             <label>background color of the badge</label>
-            <label lang="de-DE">Hintergrundfarbe des Badges</label>
+            <label lang="de-DE">hintergrundfarbe des Badges</label>
             <defaultValue>#008490</defaultValue>
             <placeholder>#008490</placeholder>
         </input-field>
@@ -179,7 +179,7 @@
         <input-field type="colorpicker">
             <name>Badge2FontColorConfiguration</name>
             <label>font color of the badge</label>
-            <label lang="de-DE">Schriftfarbe des Badges</label>
+            <label lang="de-DE">schriftfarbe des Badges</label>
             <defaultValue>#ffffff</defaultValue>
             <placeholder>#ffffff</placeholder>
         </input-field>
@@ -206,14 +206,14 @@
         <input-field type="bool">
             <name>SetBadge3ColorsViaConfiguration</name>
             <label>set the colors of the badge via configuration</label>
-            <label lang="de-DE">Farben des Badges über die Konfiguration festlegen</label>
+            <label lang="de-DE">farben des Badges über die Konfiguration festlegen</label>
             <defaultValue>false</defaultValue>
         </input-field>
 
         <input-field type="colorpicker">
             <name>Badge3BackgroundColorConfiguration</name>
             <label>background color of the badge</label>
-            <label lang="de-DE">Hintergrundfarbe des Badges</label>
+            <label lang="de-DE">hintergrundfarbe des Badges</label>
             <defaultValue>#008490</defaultValue>
             <placeholder>#008490</placeholder>
         </input-field>
@@ -221,7 +221,7 @@
         <input-field type="colorpicker">
             <name>Badge3FontColorConfiguration</name>
             <label>font color of the badge</label>
-            <label lang="de-DE">Schriftfarbe des Badges</label>
+            <label lang="de-DE">schriftfarbe des Badges</label>
             <defaultValue>#ffffff</defaultValue>
             <placeholder>#ffffff</placeholder>
         </input-field>
@@ -248,14 +248,14 @@
         <input-field type="bool">
             <name>SetBadge4ColorsViaConfiguration</name>
             <label>set the colors of the badge via configuration</label>
-            <label lang="de-DE">Farben des Badges über die Konfiguration festlegen</label>
+            <label lang="de-DE">farben des Badges über die Konfiguration festlegen</label>
             <defaultValue>false</defaultValue>
         </input-field>
 
         <input-field type="colorpicker">
             <name>Badge4BackgroundColorConfiguration</name>
             <label>background color of the badge</label>
-            <label lang="de-DE">Hintergrundfarbe des Badges</label>
+            <label lang="de-DE">hintergrundfarbe des Badges</label>
             <defaultValue>#008490</defaultValue>
             <placeholder>#008490</placeholder>
         </input-field>
@@ -263,7 +263,7 @@
         <input-field type="colorpicker">
             <name>Badge4FontColorConfiguration</name>
             <label>font color of the badge</label>
-            <label lang="de-DE">Schriftfarbe des Badges</label>
+            <label lang="de-DE">schriftfarbe des Badges</label>
             <defaultValue>#ffffff</defaultValue>
             <placeholder>#ffffff</placeholder>
         </input-field>
@@ -290,14 +290,14 @@
         <input-field type="bool">
             <name>SetBadge5ColorsViaConfiguration</name>
             <label>set the colors of the badge via configuration</label>
-            <label lang="de-DE">Farben des Badges über die Konfiguration festlegen</label>
+            <label lang="de-DE">farben des Badges über die Konfiguration festlegen</label>
             <defaultValue>false</defaultValue>
         </input-field>
 
         <input-field type="colorpicker">
             <name>Badge5BackgroundColorConfiguration</name>
             <label>background color of the badge</label>
-            <label lang="de-DE">Hintergrundfarbe des Badges</label>
+            <label lang="de-DE">hintergrundfarbe des Badges</label>
             <defaultValue>#008490</defaultValue>
             <placeholder>#008490</placeholder>
         </input-field>
@@ -305,7 +305,7 @@
         <input-field type="colorpicker">
             <name>Badge5FontColorConfiguration</name>
             <label>font color of the badge</label>
-            <label lang="de-DE">Schriftfarbe des Badges</label>
+            <label lang="de-DE">schriftfarbe des Badges</label>
             <defaultValue>#ffffff</defaultValue>
             <placeholder>#ffffff</placeholder>
         </input-field>
