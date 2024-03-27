@@ -130,8 +130,8 @@
             <name>BadgeBackgroundColorConfiguration</name>
             <label>background color of the badge</label>
             <label lang="de-DE">Hintergrundfarbe des Badges</label>
-            <defaultValue>#008490</defaultValue>
-            <placeholder>#008490</placeholder>
+            <defaultValue>#0b539b</defaultValue>
+            <placeholder>#0b539b</placeholder>
         </input-field>
 
         <input-field type="colorpicker">
@@ -172,8 +172,8 @@
             <name>Badge2BackgroundColorConfiguration</name>
             <label>background color of the badge</label>
             <label lang="de-DE">Hintergrundfarbe des Badges</label>
-            <defaultValue>#008490</defaultValue>
-            <placeholder>#008490</placeholder>
+            <defaultValue>#0b539b</defaultValue>
+            <placeholder>#0b539b</placeholder>
         </input-field>
 
         <input-field type="colorpicker">
@@ -214,8 +214,8 @@
             <name>Badge3BackgroundColorConfiguration</name>
             <label>background color of the badge</label>
             <label lang="de-DE">Hintergrundfarbe des Badges</label>
-            <defaultValue>#008490</defaultValue>
-            <placeholder>#008490</placeholder>
+            <defaultValue>#0b539b</defaultValue>
+            <placeholder>#0b539b</placeholder>
         </input-field>
 
         <input-field type="colorpicker">
@@ -256,8 +256,8 @@
             <name>Badge4BackgroundColorConfiguration</name>
             <label>background color of the badge</label>
             <label lang="de-DE">Hintergrundfarbe des Badges</label>
-            <defaultValue>#008490</defaultValue>
-            <placeholder>#008490</placeholder>
+            <defaultValue>#0b539b</defaultValue>
+            <placeholder>#0b539b</placeholder>
         </input-field>
 
         <input-field type="colorpicker">
@@ -298,8 +298,8 @@
             <name>Badge5BackgroundColorConfiguration</name>
             <label>background color of the badge</label>
             <label lang="de-DE">Hintergrundfarbe des Badges</label>
-            <defaultValue>#008490</defaultValue>
-            <placeholder>#008490</placeholder>
+            <defaultValue>#0b539b</defaultValue>
+            <placeholder>#0b539b</placeholder>
         </input-field>
 
         <input-field type="colorpicker">
