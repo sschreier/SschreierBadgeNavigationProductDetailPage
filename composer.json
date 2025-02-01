@@ -1,7 +1,7 @@
 {
     "name": "sschreier/sschreierbadgenavigationproductdetailpage",
     "description": "badges for the navigation and the product detail page",
-    "version": "1.2.1",
+    "version": "1.2.2",
     "type": "shopware-platform-plugin",
     "license": "GPL-3.0-or-later",
     "authors": [
