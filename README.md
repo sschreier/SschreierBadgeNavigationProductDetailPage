@@ -46,7 +46,7 @@ A extension for _badges for the navigation and the product detail page_. The tex
  - boxLabelDiscount
 
 ## How to install the extension
-### via console (recommended)
+### via zip and console (recommended)
 1. Download the latest _SschreierBadgeNavigationProductDetailPage-master.zip_.
 2. Unzip the zip file and rename the folder to _SschreierBadgeNavigationProductDetailPage_. 
 3. Move the folder to the project folder _custom/plugins/_ .
@@ -69,8 +69,17 @@ bin/console plugin:install --activate SschreierBadgeNavigationProductDetailPage
 ],
 ```
 
-2. Connect to the console via ssh and install the plugin source code via the command
+2. Connect to the console via ssh and install the plugin via the command
 ```
+composer require sschreier/sschreierbadgenavigationproductdetailpage
+bin/console plugin:refresh
+bin/console plugin:install --activate SschreierBadgeNavigationProductDetailPage
+```
+
+### via https://packagist.org
+ - Connect to the console via ssh and install the plugin via the command
+
+ ```
 composer require sschreier/sschreierbadgenavigationproductdetailpage
 bin/console plugin:refresh
 bin/console plugin:install --activate SschreierBadgeNavigationProductDetailPage
