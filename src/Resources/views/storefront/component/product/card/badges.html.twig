@@ -30,7 +30,7 @@
     {% block component_product_badges_new_after %}{% endblock %}
 
     {% block component_product_badges_new_out_of_stock %}
-        {% set isAvailable = not product.isCloseout or (product.availableStock >= product.minPurchase) %}
+        {% set isAvailable = not product.isCloseout or (product.stock >= product.minPurchase) %}
         {% block component_product_badges_new_out_of_stock_before %}{% endblock %}
 
         {% if config('SschreierBadgeNavigationProductDetailPage.config.ShowOosBadgeInCategoryLists') and not isAvailable %}

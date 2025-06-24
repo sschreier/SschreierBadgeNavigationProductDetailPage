@@ -52,7 +52,7 @@
         {% endblock %}
 
         {% block element_image_gallery_inner_wrapper_component_product_badges_out_of_stock %}
-            {% set isAvailable = not product.isCloseout or (product.availableStock >= product.minPurchase) %}
+            {% set isAvailable = not product.isCloseout or (product.stock >= product.minPurchase) %}
 
             {% if config('SschreierBadgeNavigationProductDetailPage.config.ShowOosBadgeOnProductDetailPage') and not isAvailable %}
                 {% sw_include '@SschreierBadgeNavigationProductDetailPage/storefront/component/product/card/badge-out-of-stock.html.twig' %}
