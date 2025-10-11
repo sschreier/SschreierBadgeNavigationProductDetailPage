@@ -103,28 +103,28 @@ bin/console plugin:install --activate SschreierBadgeNavigationProductDetailPage
 
 ### custom badge in navigation
 
-![custom badge in navigation](https://www.sebastianschreier.de/plugins/SschreierBadgeNavigationProductDetailPage/SschreierBadgeNavigationProductDetailPage-Image1.jpg)
+![custom badge in navigation](https://www.web-solutions-dresden.de/plugins/SschreierBadgeNavigationProductDetailPage/SschreierBadgeNavigationProductDetailPage-Image1.jpg)
 
 ### custom badge on product detail page
 
-![custom badge on product detail page](https://www.sebastianschreier.de/plugins/SschreierBadgeNavigationProductDetailPage/SschreierBadgeNavigationProductDetailPage-Image2.jpg)
+![custom badge on product detail page](https://www.web-solutions-dresden.de/plugins/SschreierBadgeNavigationProductDetailPage/SschreierBadgeNavigationProductDetailPage-Image2.jpg)
 
 ### extension configuration part 1
 
-![extension configuration part 1](https://www.sebastianschreier.de/plugins/SschreierBadgeNavigationProductDetailPage/SschreierBadgeNavigationProductDetailPage-Image3.jpg)
+![extension configuration part 1](https://www.web-solutions-dresden.de/plugins/SschreierBadgeNavigationProductDetailPage/SschreierBadgeNavigationProductDetailPage-Image3.jpg)
 
 ### extension configuration part 2
 
-![extension configuration part 2](https://www.sebastianschreier.de/plugins/SschreierBadgeNavigationProductDetailPage/SschreierBadgeNavigationProductDetailPage-Image4.jpg)
+![extension configuration part 2](https://www.web-solutions-dresden.de/plugins/SschreierBadgeNavigationProductDetailPage/SschreierBadgeNavigationProductDetailPage-Image4.jpg)
 
 ### extension configuration part 3
 
-![extension configuration part 3](https://www.sebastianschreier.de/plugins/SschreierBadgeNavigationProductDetailPage/SschreierBadgeNavigationProductDetailPage-Image5.jpg)
+![extension configuration part 3](https://www.web-solutions-dresden.de/plugins/SschreierBadgeNavigationProductDetailPage/SschreierBadgeNavigationProductDetailPage-Image5.jpg)
 
 ### extension configuration part 4
 
-![extension configuration part 4](https://www.sebastianschreier.de/plugins/SschreierBadgeNavigationProductDetailPage/SschreierBadgeNavigationProductDetailPage-Image6.jpg)
+![extension configuration part 4](https://www.web-solutions-dresden.de/plugins/SschreierBadgeNavigationProductDetailPage/SschreierBadgeNavigationProductDetailPage-Image6.jpg)
 
 ### custom badges in shopware administration
 
-![custom badge in shopware administration](https://www.sebastianschreier.de/plugins/SschreierBadgeNavigationProductDetailPage/SschreierBadgeNavigationProductDetailPage-Image7.jpg)
+![custom badge in shopware administration](https://www.web-solutions-dresden.de/plugins/SschreierBadgeNavigationProductDetailPage/SschreierBadgeNavigationProductDetailPage-Image7.jpg)
