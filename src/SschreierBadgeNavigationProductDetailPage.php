@@ -9,21 +9,16 @@ declare(strict_types=1);
 
 namespace Sschreier\BadgeNavigationProductDetailPage;
 
+use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\EqualsFilter;
 use Shopware\Core\Framework\Plugin;
-use Shopware\Core\Framework\Plugin\Context\InstallContext;
 use Shopware\Core\Framework\Plugin\Context\UninstallContext;
 
 class SschreierBadgeNavigationProductDetailPage extends Plugin
 {
-    const CUSTOM_FIELD_SET_TECHNICAL_NAME = 'sschreier_badges_';
-    const NUMBER_BADGES = 5;
-
-    public function install(InstallContext $installContext): void
-    {
-        parent::install($installContext);
-    }
+    public const CUSTOM_FIELD_SET_TECHNICAL_NAME = 'sschreier_badges_';
+    public const NUMBER_BADGES = 5;
 
     public function uninstall(UninstallContext $uninstallContext): void
     {
@@ -33,24 +28,24 @@ class SschreierBadgeNavigationProductDetailPage extends Plugin
             return;
         }
 
-        $this->removeCustomField($uninstallContext->getContext());
+        $this->removeCustomFieldSets($uninstallContext->getContext());
 
         parent::uninstall($uninstallContext);
     }
 
-    private function removeCustomField($uninstallContext): void
+    private function removeCustomFieldSets(Context $context): void
     {
         $customFieldSetRepository = $this->container->get('custom_field_set.repository');
 
-        for ($i = 1; $i <= SschreierBadgeNavigationProductDetailPage::NUMBER_BADGES; ++$i) {
+        for ($i = 1; $i <= self::NUMBER_BADGES; ++$i) {
             $criteria = new Criteria();
             $criteria->addFilter(new EqualsFilter('name', self::CUSTOM_FIELD_SET_TECHNICAL_NAME . $i));
 
-            $result = $customFieldSetRepository->searchIds($criteria, $uninstallContext);
+            $result = $customFieldSetRepository->searchIds($criteria, $context);
 
             if ($result->getTotal() > 0) {
                 $data = $result->getDataOfId($result->firstId());
-                $customFieldSetRepository->delete([$data], $uninstallContext);
+                $customFieldSetRepository->delete([$data], $context);
             }
         }
     }

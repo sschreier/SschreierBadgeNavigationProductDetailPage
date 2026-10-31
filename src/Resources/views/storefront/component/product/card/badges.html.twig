@@ -30,7 +30,7 @@
     {% block component_product_badges_new_after %}{% endblock %}
 
     {% block component_product_badges_new_out_of_stock %}
-        {% set isAvailable = not product.isCloseout or (product.stock >= product.minPurchase) %}
+        {% set isAvailable = not product.isCloseout or product.stock >= product.minPurchase %}
         {% block component_product_badges_new_out_of_stock_before %}{% endblock %}
 
         {% if config('SschreierBadgeNavigationProductDetailPage.config.ShowOosBadgeInCategoryLists') and not isAvailable %}
@@ -40,60 +40,35 @@
         {% block component_product_badges_new_out_of_stock_after %}{% endblock %}
     {% endblock %}
 
-    {% set customFields = product.translated.customFields %}
-    {% set numberBadgesValue = page.numberBadgesValue %}
+    {% set customFields = product.translated.customFields|default({}) %}
+    {% set numberBadgesValue = page.numberBadgesValue|default(5) %}
+    {% set badgeConfigPrefix = 'SschreierBadgeNavigationProductDetailPage.config.' %}
 
     {% block component_product_badges_new_custom_badge %}
         {% for numberBadges in 1..numberBadgesValue %}
-            {% set showBadge = false %}
-
-            {% if (numberBadges == 1) %}
-                {% set showBadge = config('SschreierBadgeNavigationProductDetailPage.config.ShowBadgeInCategoryLists') %}
-                {% set customSetBadgeColorsViaConfiguration = config('SschreierBadgeNavigationProductDetailPage.config.SetBadgeColorsViaConfiguration') %}
-                {% set customBadgeBackgroundColorConfiguration = config('SschreierBadgeNavigationProductDetailPage.config.BadgeBackgroundColorConfiguration') %}
-                {% set customBadgeFontColorConfiguration = config('SschreierBadgeNavigationProductDetailPage.config.BadgeFontColorConfiguration') %}
-            {% elseif (numberBadges == 2) %}
-                {% set showBadge = config('SschreierBadgeNavigationProductDetailPage.config.ShowBadge2InCategoryLists') %}
-                {% set customSetBadgeColorsViaConfiguration = config('SschreierBadgeNavigationProductDetailPage.config.SetBadge2ColorsViaConfiguration') %}
-                {% set customBadgeBackgroundColorConfiguration = config('SschreierBadgeNavigationProductDetailPage.config.Badge2BackgroundColorConfiguration') %}
-                {% set customBadgeFontColorConfiguration = config('SschreierBadgeNavigationProductDetailPage.config.Badge2FontColorConfiguration') %}
-            {% elseif (numberBadges == 3) %}
-                {% set showBadge = config('SschreierBadgeNavigationProductDetailPage.config.ShowBadge3InCategoryLists') %}
-                {% set customSetBadgeColorsViaConfiguration = config('SschreierBadgeNavigationProductDetailPage.config.SetBadge3ColorsViaConfiguration') %}
-                {% set customBadgeBackgroundColorConfiguration = config('SschreierBadgeNavigationProductDetailPage.config.Badge3BackgroundColorConfiguration') %}
-                {% set customBadgeFontColorConfiguration = config('SschreierBadgeNavigationProductDetailPage.config.Badge3FontColorConfiguration') %}
-            {% elseif (numberBadges == 4) %}
-                {% set showBadge = config('SschreierBadgeNavigationProductDetailPage.config.ShowBadge4InCategoryLists') %}
-                {% set customSetBadgeColorsViaConfiguration = config('SschreierBadgeNavigationProductDetailPage.config.SetBadge4ColorsViaConfiguration') %}
-                {% set customBadgeBackgroundColorConfiguration = config('SschreierBadgeNavigationProductDetailPage.config.Badge4BackgroundColorConfiguration') %}
-                {% set customBadgeFontColorConfiguration = config('SschreierBadgeNavigationProductDetailPage.config.Badge4FontColorConfiguration') %}
-            {% elseif (numberBadges == 5) %}
-                {% set showBadge = config('SschreierBadgeNavigationProductDetailPage.config.ShowBadge5InCategoryLists') %}
-                {% set customSetBadgeColorsViaConfiguration = config('SschreierBadgeNavigationProductDetailPage.config.SetBadge5ColorsViaConfiguration') %}
-                {% set customBadgeBackgroundColorConfiguration = config('SschreierBadgeNavigationProductDetailPage.config.Badge5BackgroundColorConfiguration') %}
-                {% set customBadgeFontColorConfiguration = config('SschreierBadgeNavigationProductDetailPage.config.Badge5FontColorConfiguration') %}
-            {% else %}
-                {% block element_image_gallery_inner_wrapper_custom_badge_default %}
-                    {% set showBadge = config('SschreierBadgeNavigationProductDetailPage.config.ShowBadgeInCategoryLists') %}
-                    {% set customSetBadgeColorsViaConfiguration = config('SschreierBadgeNavigationProductDetailPage.config.SetBadgeColorsViaConfiguration') %}
-                    {% set customBadgeBackgroundColorConfiguration = config('SschreierBadgeNavigationProductDetailPage.config.BadgeBackgroundColorConfiguration') %}
-                    {% set customBadgeFontColorConfiguration = config('SschreierBadgeNavigationProductDetailPage.config.BadgeFontColorConfiguration') %}
-                {% endblock %}
-            {% endif %}
+            {% set badgeConfigNumber = numberBadges > 5 ? 1 : numberBadges %}
+            {% set badgeConfigSuffix = badgeConfigNumber == 1 ? '' : badgeConfigNumber %}
+            {% set showBadge = config(badgeConfigPrefix ~ 'ShowBadge' ~ badgeConfigSuffix ~ 'InCategoryLists') %}
+            {% set customSetBadgeColorsViaConfiguration = config(badgeConfigPrefix ~ 'SetBadge' ~ badgeConfigSuffix ~ 'ColorsViaConfiguration') %}
+            {% set customBadgeBackgroundColorConfiguration = config(badgeConfigPrefix ~ 'Badge' ~ badgeConfigSuffix ~ 'BackgroundColorConfiguration') %}
+            {% set customBadgeFontColorConfiguration = config(badgeConfigPrefix ~ 'Badge' ~ badgeConfigSuffix ~ 'FontColorConfiguration') %}
 
             {% block page_product_detail_buy_container_inner %}
-                {% if showBadge %}
-                    {% set customBadgeTextValue = 'sschreier_badges_badge' ~ numberBadges ~ '_text' %}
-                    {% set customBadgeBackgroundColorValue = 'sschreier_badges_badge' ~ numberBadges ~ '_backgroundcolor' %}
-                    {% set customBadgeFontColorValue = 'sschreier_badges_badge' ~ numberBadges ~ '_fontcolor' %}
+                {% set customBadgeTextValue = 'sschreier_badges_badge' ~ numberBadges ~ '_text' %}
+                {% set customBadgeBackgroundColorValue = 'sschreier_badges_badge' ~ numberBadges ~ '_backgroundcolor' %}
+                {% set customBadgeFontColorValue = 'sschreier_badges_badge' ~ numberBadges ~ '_fontcolor' %}
 
-                    {% if customFields[customBadgeTextValue] %}
-                        {% sw_include '@SschreierBadgeNavigationProductDetailPage/storefront/component/product/card/badge-custom.html.twig' with {
-                            customSetBadgeColorsViaConfiguration: customSetBadgeColorsViaConfiguration,
-                            customBadgeBackgroundColorConfiguration: customBadgeBackgroundColorConfiguration,
-                            customBadgeFontColorConfiguration: customBadgeFontColorConfiguration
-                        } %}
-                    {% endif %}
+                {% if showBadge and customFields[customBadgeTextValue]|default(false) %}
+                    {% sw_include '@SschreierBadgeNavigationProductDetailPage/storefront/component/product/card/badge-custom.html.twig' with {
+                        numberBadges: numberBadges,
+                        customFields: customFields,
+                        customBadgeTextValue: customBadgeTextValue,
+                        customBadgeBackgroundColorValue: customBadgeBackgroundColorValue,
+                        customBadgeFontColorValue: customBadgeFontColorValue,
+                        customSetBadgeColorsViaConfiguration: customSetBadgeColorsViaConfiguration,
+                        customBadgeBackgroundColorConfiguration: customBadgeBackgroundColorConfiguration,
+                        customBadgeFontColorConfiguration: customBadgeFontColorConfiguration
+                    } %}
                 {% endif %}
             {% endblock %}
         {% endfor %}

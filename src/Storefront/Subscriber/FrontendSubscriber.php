@@ -9,7 +9,6 @@ declare(strict_types=1);
 
 namespace Sschreier\BadgeNavigationProductDetailPage\Storefront\Subscriber;
 
-use Shopware\Core\Content\Product\SalesChannel\SalesChannelProductEntity;
 use Shopware\Core\Framework\Struct\ArrayEntity;
 use Shopware\Storefront\Page\Navigation\NavigationPageLoadedEvent;
 use Shopware\Storefront\Page\Product\ProductPageLoadedEvent;
@@ -39,23 +38,11 @@ class FrontendSubscriber implements EventSubscriberInterface
     /**
      * provide the number of badges on the product detail page
      */
-    public function onProductPageLoaded(ProductPageLoadedEvent $event): SalesChannelProductEntity
+    public function onProductPageLoaded(ProductPageLoadedEvent $event): void
     {
-        $product = $event->getPage()->getProduct();
-
-        $numberBadges['value'] = SschreierBadgeNavigationProductDetailPage::NUMBER_BADGES;
-        $numberBadgesValue = $this->createArrayEntity($numberBadges);
-
-        $product->addExtension('numberBadgesValue', $numberBadgesValue);
-
-        return $product;
-    }
-
-    /**
-     * create an ArrayEntity with the given data
-     */
-    private function createArrayEntity($extensionData): ArrayEntity
-    {
-        return new ArrayEntity($extensionData);
+        $event->getPage()->getProduct()->addExtension(
+            'numberBadgesValue',
+            new ArrayEntity(['value' => SschreierBadgeNavigationProductDetailPage::NUMBER_BADGES])
+        );
     }
 }

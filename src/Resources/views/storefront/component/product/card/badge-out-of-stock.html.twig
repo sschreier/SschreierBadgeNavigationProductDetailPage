@@ -1,8 +1,12 @@
+{% set backgroundColor = config('SschreierBadgeNavigationProductDetailPage.config.OosBadgeBackgroundColorConfiguration')|default('') %}
+{% set fontColor = config('SschreierBadgeNavigationProductDetailPage.config.OosBadgeFontColorConfiguration')|default('') %}
+{% set hasValidBackgroundColor = backgroundColor matches '/^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{4}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})$/' %}
+{% set hasValidFontColor = fontColor matches '/^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{4}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})$/' %}
+
 <div>
-    <span class="badge bg-out-of-stock"
-        {% if config('SschreierBadgeNavigationProductDetailPage.config.OosBadgeBackgroundColorConfiguration') or config('SschreierBadgeNavigationProductDetailPage.config.OosBadgeFontColorConfiguration') %}style="{% if config('SschreierBadgeNavigationProductDetailPage.config.OosBadgeBackgroundColorConfiguration') %}background-color: {{ config('SschreierBadgeNavigationProductDetailPage.config.OosBadgeBackgroundColorConfiguration') }};{% endif %}{% if config('SschreierBadgeNavigationProductDetailPage.config.OosBadgeFontColorConfiguration') %}color: {{ config('SschreierBadgeNavigationProductDetailPage.config.OosBadgeFontColorConfiguration') }};{% endif %}"{% endif %}>
+    <span class="badge bg-out-of-stock"{% if hasValidBackgroundColor or hasValidFontColor %} style="{% if hasValidBackgroundColor %}background-color: {{ backgroundColor|e('html_attr') }};{% endif %}{% if hasValidFontColor %}color: {{ fontColor|e('html_attr') }};{% endif %}"{% endif %}>
         {% block page_product_detail_buy_container_inner_out_of_stock_badge %}
-            {{ "sschreier.badgenavigationproductdetailpage.badgeOutOfStockText"|trans }}
+            {{ "sschreier.badgenavigationproductdetailpage.badgeOutOfStockText"|trans|sw_sanitize }}
         {% endblock %}
     </span>
 </div>
